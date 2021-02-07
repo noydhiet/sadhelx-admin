@@ -5,7 +5,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SadhelX <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -102,6 +102,13 @@
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
+            </li>
+
+              <!-- Nav Item - Tables -->
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('guidelines') ?>">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Guidelines</span></a>
             </li>
 
             <!-- Divider -->
