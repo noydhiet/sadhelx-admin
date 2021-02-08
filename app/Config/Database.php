@@ -30,15 +30,15 @@ class Database extends \CodeIgniter\Database\Config
 	 * @var array
 	 */
 	public $default = [
-		'DSN'      => '',
+		'DSN'      => 'pgsql:host=localhost;port=5432;dbname=sdx_sertifikasi_db', 
 		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => 'root',
-		'database' => 'ejb_db',
-		'DBDriver' => 'MySQLi',
+		'username' => 'sadhelx_usr',
+		'password' => 's4dhelx',
+		'database' => 'sdx_sertifikasi_db',
+		'DBDriver' => 'pdo',
 		'DBPrefix' => '',
 		'pConnect' => false,
-		'DBDebug'  => (ENVIRONMENT !== 'production'),
+		'DBDebug'  => (ENVIRONMENT !== 'development'),
 		'cacheOn'  => false,
 		'cacheDir' => '',
 		'charset'  => 'utf8',
@@ -48,7 +48,7 @@ class Database extends \CodeIgniter\Database\Config
 		'compress' => false,
 		'strictOn' => false,
 		'failover' => [],
-		'port'     => 8889,
+		'port'     => 5432,
 	];
 
 	/**
@@ -61,12 +61,12 @@ class Database extends \CodeIgniter\Database\Config
 		'DSN'      => '',
 		'hostname' => 'localhost',
 		'username' => 'root',
-		'password' => 'root',
-		'database' => 'ejb_db:',
-		'DBDriver' => 'SQLite3',
-		'DBPrefix' => 'db_',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
+		'password' => '',
+		'database' => 'sadhelx_local',
+		'DBDriver' => 'MySQLi',
+		'DBPrefix' => '',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
 		'pConnect' => false,
-		'DBDebug'  => (ENVIRONMENT !== 'production'),
+		'DBDebug'  => (ENVIRONMENT !== 'development'),
 		'cacheOn'  => false,
 		'cacheDir' => '',
 		'charset'  => 'utf8',
@@ -76,7 +76,7 @@ class Database extends \CodeIgniter\Database\Config
 		'compress' => false,
 		'strictOn' => false,
 		'failover' => [],
-		'port'     => 8889,
+		'port'     => 3306,
 	];
 
 	//--------------------------------------------------------------------
