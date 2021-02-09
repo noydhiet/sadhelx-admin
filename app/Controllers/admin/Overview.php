@@ -1,6 +1,7 @@
-<?php
+<?php namespace App\Controllers\admin;
 
-class Overview extends CI_Controller {
+use CodeIgniter\Controller;
+class Overview extends Controller {
     public function __construct()
     {
 		parent::__construct();

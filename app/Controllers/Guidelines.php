@@ -13,12 +13,21 @@ class Guidelines extends Controller
 	public function index()
 	{
         $data['guideline'] = $this->guideline->getGuidelines();
+
+        echo view('admin/_partials/head');
+		echo view('admin/_partials/sidebar');
+        echo view('admin/_partials/navbar');
         echo view('admin/guide/index', $data);
+		echo view('admin/_partials/footer');
+		echo view('admin/_partials/modal');
+		echo view('admin/_partials/js');        
         
     }
     public function create()
     {
-        return view('admin/guide/create');
+	
+        echo view('admin/guide/create');
+      
 
     }    
         public function store()
@@ -50,6 +59,7 @@ class Guidelines extends Controller
     public function edit($id)
     {
         $data['guideline'] = $this->guideline->getGuidelines($id);
+        echo view('admin/_partials/head');
         return view('admin/guide/edit', $data);
     }
     public function update($id)

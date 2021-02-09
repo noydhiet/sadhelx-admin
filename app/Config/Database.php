@@ -30,11 +30,11 @@ class Database extends \CodeIgniter\Database\Config
 	 * @var array
 	 */
 	public $default = [
-		'DSN'      => 'pgsql:host=localhost;port=5432;dbname=sdx_sertifikasi_db', 
+		'DSN'      => 'pgsql:host=localhost;port=5432;dbname=sdx_db', 
 		'hostname' => 'localhost',
 		'username' => 'sadhelx_usr',
 		'password' => 's4dhelx',
-		'database' => 'sdx_sertifikasi_db',
+		'database' => 'sdx_db',
 		'DBDriver' => 'pdo',
 		'DBPrefix' => '',
 		'pConnect' => false,
@@ -48,7 +48,7 @@ class Database extends \CodeIgniter\Database\Config
 		'compress' => false,
 		'strictOn' => false,
 		'failover' => [],
-		'port'     => 5432,
+		'port'     => 3306,
 	];
 
 	/**
