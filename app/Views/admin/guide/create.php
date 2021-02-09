@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> 
-</head>
-<body style="width: 70%; margin: 0 auto; padding-top: 30px;">
-	<div class="row">
-        <div class="col-lg-12 margin-tb"></div>
-    </div>
-    <hr>
-    <div class="row">
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+ <h1 class="h3 mb-0 text-gray-800">Guidelines</h1>
+ </div>
+
+<div class="row">
+
     	<div class="col-lg-12">
     		 <!-- Success Upload -->
 	        <?php if(!empty(session()->getFlashdata('berhasil'))){ ?>
@@ -18,7 +17,7 @@
 	            </div>
 	        <?php } ?>
 	        
-            <form action="/guidelines/store" method="post" enctype="multipart/form-data">
+			<form action="<?php echo base_url('guidelines/store') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
     		<div class="row">
     			<div class="col-md-4">
@@ -41,7 +40,8 @@
     			</div>
     		</div>
     	</div>
+	</div>
+</div>
+</div>
     </div>
-    
-</body>
-</html>
+		</div>

@@ -30,12 +30,12 @@ class Database extends \CodeIgniter\Database\Config
 	 * @var array
 	 */
 	public $default = [
-		'DSN'      => 'pgsql:host=localhost;port=5432;dbname=sdx_db', 
+		'DSN'      => '', 
 		'hostname' => 'localhost',
-		'username' => 'sadhelx_usr',
-		'password' => 's4dhelx',
-		'database' => 'sdx_db',
-		'DBDriver' => 'pdo',
+		'username' => 'root',
+		'password' => '',
+		'database' => 'sadhelx_local',
+		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
 		'DBDebug'  => (ENVIRONMENT !== 'development'),

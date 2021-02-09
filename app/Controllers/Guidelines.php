@@ -5,37 +5,33 @@ use App\Models\GuidelinesModel;
 
 class Guidelines extends Controller
 {
-	public function __construct() 
-    {
-        $this->guideline = new GuidelinesModel();       
-    }
 
 	public function index()
-	{
-        $data['guideline'] = $this->guideline->getGuidelines();
-
-        echo view('admin/_partials/head');
-		echo view('admin/_partials/sidebar');
-        echo view('admin/_partials/navbar');
-        echo view('admin/guide/index', $data);
-		echo view('admin/_partials/footer');
-		echo view('admin/_partials/modal');
-		echo view('admin/_partials/js');        
+	{             
+        $model = new GuidelinesModel();
+		$guideline = $model->getGuidelines();
+        $data = array(	'title'		=> 'Data Berita',
+                        'guideline'	=> $guideline,
+						'content'	=> 'admin/guide/index');
+		return view('admin/_partials/wrapper',$data);
         
     }
     public function create()
     {
-	
-        echo view('admin/guide/create');
-      
-
+        
+        $model = new GuidelinesModel();
+		$guideline = $model->getGuidelines();
+        $data = array(	'title'		=> 'Data Berita',
+                        'guideline'	=> $guideline,
+						'content'	=> 'admin/guide/create');
+		return view('admin/_partials/wrapper',$data);
     }    
         public function store()
 
         {
         $model = new GuidelinesModel();
         if ($this->request->getMethod() !== 'post') {
-            return redirect()->to('upload');
+            return redirect()->to('/');
         }
         $validation = $this->validate([
 
@@ -47,20 +43,24 @@ class Guidelines extends Controller
             return $this->index();
         } else {
             $upload = $this->request->getFile('file_upload');
-            $upload->move(WRITEPATH . '../public/assets/images/');
+            $upload->move(WRITEPATH . '../assets/images/');
         $data = array(
             'name'  => $this->request->getPost('name'),
             'file' => $upload->getName()
         );
         $model->insert_Guidelines($data);
-        return redirect()->to('guidelines')->with('berhasil', 'Data Berhasil di Simpan');
+        return redirect()->to('')->with('berhasil', 'Data Berhasil di Simpan');
         }
     }
     public function edit($id)
     {
-        $data['guideline'] = $this->guideline->getGuidelines($id);
-        echo view('admin/_partials/head');
-        return view('admin/guide/edit', $data);
+        
+         $model = new GuidelinesModel();
+		$guideline = $model->getGuidelines($id);
+        $guideline = array(	'title'		=> 'Data Berita',
+                        'guideline'	=> $guideline,
+						'content'	=> 'admin/guide/edit');
+		return view('admin/_partials/wrapper',$guideline);
     }
     public function update($id)
     {
@@ -72,7 +72,8 @@ class Guidelines extends Controller
             'file' => $file
         ];
 
-        $update = $this->guideline->update_Guidelines($data, $id);
+        $model = new GuidelinesModel();
+		$update = $model->update_Guidelines($data, $id);
 
         if($update)
         {
@@ -82,12 +83,15 @@ class Guidelines extends Controller
     }
     public function delete($id)
     {
-        $hapus = $this->guideline->delete_Guidelines($id);
 
-        if($hapus)
-        {
-            session()->setFlashdata('warning', 'Deleted guide successfully');
+
+          
+            $model 	= new GuidelinesModel();
+            $berita = $model->delete_Guidelines($id);
+            session()->setFlashdata('info', 'Updated guide successfully');
             return redirect()->to(base_url('guidelines'));
         }
-    }
+    
+
+    
 }
