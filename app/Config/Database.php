@@ -30,12 +30,13 @@ class Database extends \CodeIgniter\Database\Config
 	 * @var array
 	 */
 	public $default = [
-		'DSN'      => '', 
+        'dsn'      => '',
+		// 'hostname' => 'localhost',
 		'hostname' => 'localhost',
-		'username' => 'root',
-		'password' => '',
-		'database' => 'sadhelx_local',
-		'DBDriver' => 'MySQLi',
+		'username' => 'postgres',
+		'password' => 'postgres',
+		'database' => 'sdx_db',
+		'DBDriver' => 'postgre',
 		'DBPrefix' => '',
 		'pConnect' => false,
 		'DBDebug'  => (ENVIRONMENT !== 'development'),
@@ -48,7 +49,7 @@ class Database extends \CodeIgniter\Database\Config
 		'compress' => false,
 		'strictOn' => false,
 		'failover' => [],
-		'port'     => 3306,
+		'port'     => 5432,
 	];
 
 	/**
@@ -59,14 +60,14 @@ class Database extends \CodeIgniter\Database\Config
 	 */
 	public $tests = [
 		'DSN'      => '',
-		'hostname' => 'localhost',
-		'username' => 'root',
+		'hostname' => '127.0.0.1',
+		'username' => '',
 		'password' => '',
-		'database' => 'sadhelx_local',
-		'DBDriver' => 'MySQLi',
-		'DBPrefix' => '',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
+		'database' => ':memory:',
+		'DBDriver' => 'SQLite3',
+		'DBPrefix' => 'db_',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
 		'pConnect' => false,
-		'DBDebug'  => (ENVIRONMENT !== 'development'),
+		'DBDebug'  => (ENVIRONMENT !== 'production'),
 		'cacheOn'  => false,
 		'cacheDir' => '',
 		'charset'  => 'utf8',

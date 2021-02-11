@@ -5,12 +5,16 @@ use App\Models\GuidelinesModel;
 
 class Guidelines extends Controller
 {
-
+	public function __construct()
+	{
+		$this->session = session();
+		
+	}
 	public function index()
 	{             
         $model = new GuidelinesModel();
 		$guideline = $model->getGuidelines();
-        $data = array(	'title'		=> 'Data Berita',
+        $data = array(	'title'		=> 'Data',
                         'guideline'	=> $guideline,
 						'content'	=> 'admin/guide/index');
 		return view('admin/_partials/wrapper',$data);
@@ -44,12 +48,21 @@ class Guidelines extends Controller
         } else {
             $upload = $this->request->getFile('file_upload');
             $upload->move(WRITEPATH . '../assets/images/');
+
         $data = array(
-            'name'  => $this->request->getPost('name'),
+            'guidelines_name'  => $this->request->getPost('guidelines_name'),
+            'guidelines_description'  => $this->request->getPost('guidelines_description'),
+            'guidelines_type'  => $this->request->getPost('guidelines_type'),
+            'guidelines_link'  => $this->request->getPost('guidelines_link'),
+            'created_date' => date("Y-m-d H:i:s"),
+            'created_by'  => $this->request->getPost('created_by'),
+            'updated_date' => date("Y-m-d H:i:s"),
+            'updated_by'  => $this->request->getPost('updated_by'),
             'file' => $upload->getName()
         );
+        
         $model->insert_Guidelines($data);
-        return redirect()->to('')->with('berhasil', 'Data Berhasil di Simpan');
+        return redirect()->to(base_url('guidelines'))->with('berhasil', 'Data Berhasil di Simpan');
         }
     }
     public function edit($id)
@@ -64,11 +77,27 @@ class Guidelines extends Controller
     }
     public function update($id)
     {
-        $name = $this->request->getPost('name');
+      
+        $guidelines_name = $this->request->getPost('guidelines_name');
+        $guidelines_description = $this->request->getPost('guidelines_description');
+        $guidelines_type = $this->request->getPost('guidelines_type');
+        $guidelines_link = $this->request->getPost('guidelines_link');
+        $created_date = date("Y-m-d H:i:s");
+        $created_by = $this->request->getPost('created_by');
+        $updated_date = date("Y-m-d H:i:s");
+        $updated_by = $this->request->getPost('updated_by');
         $file = $this->request->getPost('file');
 
-        $data = [
-            'name' => $name,
+        $data = 
+        [
+            'guidelines_name' => $guidelines_name,
+            'guidelines_description' => $guidelines_description,
+            'guidelines_type' => $guidelines_type,
+            'guidelines_link' => $guidelines_link,
+            'created_date' => $created_date,
+            'created_by' => $created_by,
+            'updated_date' => $updated_date,
+            'updated_by' => $updated_by,
             'file' => $file
         ];
 
@@ -83,9 +112,7 @@ class Guidelines extends Controller
     }
     public function delete($id)
     {
-
-
-          
+         
             $model 	= new GuidelinesModel();
             $berita = $model->delete_Guidelines($id);
             session()->setFlashdata('info', 'Updated guide successfully');

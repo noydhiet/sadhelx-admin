@@ -20,12 +20,31 @@
 			<form action="<?php echo base_url('guidelines/store') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 
     		<div class="row">
+			
     			<div class="col-md-4">
-    				<label>Judul</label>
+    				<label>guidelines name</label>
     				<div class="form-group">
-                   		 <input type="text" name="name" class="form-control"> 
+                   		 <input type="text" name="guidelines_name" class="form-control"> 
                 	</div>	
     			</div>
+				<div class="col-md-4">
+    				<label>guidelines description</label>
+    				<div class="form-group">
+                   		 <input type="text" name="guidelines_description" class="form-control"> 
+                	</div>	
+    			</div>
+				<div class="col-md-4">
+    				<label>guidelines type</label>
+    				<div class="form-group">
+                   		 <input type="text" name="guidelines_type" class="form-control"> 
+                	</div>	
+    			</div>
+				<div class="col-md-4">
+    				<label>guidelines link</label>
+    				<div class="form-group">
+                   		 <input type="text" name="guidelines_link" class="form-control"> 
+                	</div>	
+    			</div>					
     			<div class="col-md-4">
     				<label>File</label>
     				<div class="form-group">
