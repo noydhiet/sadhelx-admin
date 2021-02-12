@@ -51,6 +51,13 @@
                    		 <input type="file" name="file_upload" class="form-control"> 
                 	</div>	
     			</div>
+				<div class="col-md-4">
+            <label for="status">Status</label>
+                <select class="form-control" name="status" id="status">
+                <option value="Publish" id="1">Publish</option>
+                <option value="Hide" id="2">Hide</option>
+                </select>
+            </div>
     			<div class="col-md-4">
     				<label>Aksi</label>
     				<div class="form-group">

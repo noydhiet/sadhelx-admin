@@ -29,7 +29,9 @@ class Admin extends Controller
         if (!isset($_SESSION['admin_logged_in'])) {
 			$dataIndex['title'] = "Login - Administrator";
 			$this->session->removeTempdata('message');
+			echo view('admin/_partials/head');
 			return view('admin/login', $dataIndex);
+
 		}
 
         
@@ -79,7 +81,7 @@ class Admin extends Controller
 						'admin_logged_in' => TRUE
 					);
 					$this->session->set($data_session);
-					return redirect()->to(base_url('admin'));
+					return redirect()->to(base_url('home'));
 				}
 			} else {
 				$this->notif->message('username atau password anda salah', 'danger');
@@ -95,5 +97,9 @@ class Admin extends Controller
 		return redirect()->to(base_url('admin'));
 	}
 
-
+	public function registration()
+	{
+		echo view('admin/_partials/head');
+		return view('login/registration');
+	}
 }

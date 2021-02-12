@@ -54,11 +54,19 @@
                 <input type="file" name="file" value="<?php echo $guideline['file']; ?>" class="form-control" placeholder="Name">
             </div>
             </div>
+            
+            <div class="col-md-4">
+            <label for="status">Status</label>
+                <select class="form-control" name="status" id="status">
+                <option value="Publish">Publish</option>
+                <option value="Hide" <?php if($guideline['status']=="Hide") { echo "selected"; } ?>>Hide</option>
+                </select>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                 <button type="submit" class="btn btn-primary">Update</button>
                 </div>
+            </div>
             </div>
         </form>
     </div>

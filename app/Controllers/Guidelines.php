@@ -2,6 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Models\GuidelinesModel;
+use App\Models\GuidelinesShowModel;
 
 class Guidelines extends Controller
 {
@@ -20,9 +21,18 @@ class Guidelines extends Controller
 		return view('admin/_partials/wrapper',$data);
         
     }
-    public function create()
-    {
+    public function statusshow()
+	{             
+        $model = new GuidelinesShowModel();
+		$guidelinestatusshow = $model->getStatusShowGuidelines();
+        $data = array(	'title'		=> 'Data',
+                        'guidelinestatusshow'	=> $guidelinestatusshow,
+						'content'	=> 'admin/guide/statusshow');
+		return view('admin/_partials/wrapper',$data);
         
+    }
+    public function create()
+    {        
         $model = new GuidelinesModel();
 		$guideline = $model->getGuidelines();
         $data = array(	'title'		=> 'Data Berita',
@@ -58,6 +68,8 @@ class Guidelines extends Controller
             'created_by'  => $this->request->getPost('created_by'),
             'updated_date' => date("Y-m-d H:i:s"),
             'updated_by'  => $this->request->getPost('updated_by'),
+            'status'  => $this->request->getPost('status'),
+
             'file' => $upload->getName()
         );
         
@@ -66,9 +78,8 @@ class Guidelines extends Controller
         }
     }
     public function edit($id)
-    {
-        
-         $model = new GuidelinesModel();
+    {        
+        $model = new GuidelinesModel();
 		$guideline = $model->getGuidelines($id);
         $guideline = array(	'title'		=> 'Data Berita',
                         'guideline'	=> $guideline,
@@ -76,8 +87,7 @@ class Guidelines extends Controller
 		return view('admin/_partials/wrapper',$guideline);
     }
     public function update($id)
-    {
-      
+    {    
         $guidelines_name = $this->request->getPost('guidelines_name');
         $guidelines_description = $this->request->getPost('guidelines_description');
         $guidelines_type = $this->request->getPost('guidelines_type');
@@ -86,6 +96,7 @@ class Guidelines extends Controller
         $created_by = $this->request->getPost('created_by');
         $updated_date = date("Y-m-d H:i:s");
         $updated_by = $this->request->getPost('updated_by');
+        $status = $this->request->getPost('status');
         $file = $this->request->getPost('file');
 
         $data = 
@@ -98,6 +109,7 @@ class Guidelines extends Controller
             'created_by' => $created_by,
             'updated_date' => $updated_date,
             'updated_by' => $updated_by,
+            'status' => $status,
             'file' => $file
         ];
 

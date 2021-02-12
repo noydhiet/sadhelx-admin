@@ -1,21 +1,15 @@
 <?php namespace App\Controllers;
+use CodeIgniter\Controller;
 
-class Home extends BaseController
+class Home extends Controller
 {
+
 	public function index()
-	{
-		$data = [];
-
-		echo view('admin/_partials/head');
-		echo view('admin/_partials/sidebar');
-		echo view('admin/_partials/navbar', $data);
-		echo view('welcome_message');
-		echo view('admin/_partials/footer');
-		echo view('admin/_partials/modal');
-		echo view('admin/_partials/js');
-
-	}
-
-	//--------------------------------------------------------------------
+	{ 
+        $data = array(	'title'		=> 'Data',
+						'content'	=> 'welcome_message');
+		return view('admin/_partials/wrapper',$data);
+        
+    }
 
 }

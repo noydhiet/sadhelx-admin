@@ -4,7 +4,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Master Guidelines</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Guidelines Active</h1>
                     </div>
 
                     <div class="row">
@@ -24,36 +24,23 @@
                        <table class="table table-bordered">
                 <thead>
                     <th>No</th>
-                    <th>guidelines name</th>
-                    <th>guidelines description</th>
-                    <th>guidelines type</th>
-                    <th>guidelines link</th>
-                    <th>created by</th>
-                    <th>created date</th>
-                    <th>updated by</th>
-                    <th>updated date</th>
-                    <th>file</th>
-                    <th>status</th>
-                    <th>Action</th>
+                    <th>active id</th>
+                    <th>active date</th>
+                    <th>active by</th>
+                    <th>fk guide id</th>
+                     <th>Action</th>
 
 
                 </thead>
                 <tbody>
-                    <?php $no=0; foreach($guideline as $data) { $no++ ?>
+                    <?php $no=0; foreach($guidelinestatusshow as $data) { $no++ ?>
 
                     <tr>
                         <td><?php echo $no; ?></td>
-                        <td><?php echo $data['guidelines_name']; ?></td>
-                        <td><?php echo $data['guidelines_description']; ?></td>
-                        <td><?php echo $data['guidelines_type']; ?></td>
-                        <td><?php echo $data['guidelines_link']; ?></td>
-                        <td><?php echo $data['created_by']; ?></td>
-                        <td><?php echo $data['created_date']; ?></td>
-                        <td><?php echo $data['updated_by']; ?></td>
-                        <td><?php echo $data['updated_date']; ?></td>
-                        <td><?php echo $data['file']; ?></td>
-                        <td><?php echo $data['status']; ?></td>
-
+                        <td><?php echo $data['active_id']; ?></td>
+                        <td><?php echo $data['active_date']; ?></td>
+                        <td><?php echo $data['active_by']; ?></td>
+                        <td><?php echo $data['fk_guide_id']; ?></td>
                         <td>
                             <div class="btn-group">
                                 <a href="<?php echo base_url('guidelines/edit/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit"></i>edit</a>

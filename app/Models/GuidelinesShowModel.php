@@ -2,23 +2,23 @@
 
 use CodeIgniter\Model;
 
-class GuidelinesModel extends Model
+class GuidelinesShowModel extends Model
 {
-    protected $table = "tbl_mstr_guidelines";
-    protected $primaryKey = 'guidelines_id';
+    protected $table = "tbl_trx_active_guidelines";
+    protected $primaryKey = 'active_id';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
     
-    public function getGuidelines($id = false)
+    public function getStatusShowGuidelines($id = false)
     {        
         if($id === false){
-            return $this->table('tbl_mstr_guidelines')
+            return $this->table('tbl_trx_active_guidelines')
             ->get()
             ->getResultArray();
         } else {
-            return $this->table('tbl_mstr_guidelines')
-                        ->where('guidelines_id', $id)
+            return $this->table('tbl_trx_active_guidelines')
+                        ->where('active_id', $id)
                         ->get()
                         ->getRowArray();
         }   
@@ -33,13 +33,13 @@ class GuidelinesModel extends Model
         return $this->db->table($this->table)->insert($data);
     }
 
-    public function update_Guidelines($data, $guidelines_id)
+    public function update_Guidelines($data, $active_id)
     {
-        return $this->db->table($this->table)->update($data, ['guidelines_id' => $guidelines_id]);
+        return $this->db->table($this->table)->update($data, ['active_id' => $active_id]);
     }
 
-    public function delete_Guidelines($guidelines_id)
+    public function delete_Guidelines($active_id)
     {
-        return $this->db->table($this->table)->delete(['guidelines_id' => $guidelines_id]);
+        return $this->db->table($this->table)->delete(['active_id' => $active_id]);
     }
 }
