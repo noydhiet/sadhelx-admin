@@ -18,9 +18,8 @@
                 <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                        Create Guidelines</div>
-                       <a href="<?php echo base_url('guidelines/statusshow'); ?>" class="btn btn-success float-right mb-3">-</a>
                        
-                       <a href="<?php echo base_url('guidelines/create'); ?>" class="btn btn-success float-right mb-3">+</a>
+                       <a href="<?php echo base_url('guidelines'); ?>" class="btn btn-success float-right mb-3">Guidelines</a>
                        <table class="table table-bordered">
                 <thead>
                     <th>No</th>
