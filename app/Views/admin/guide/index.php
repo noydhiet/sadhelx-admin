@@ -33,7 +33,6 @@
                     <th>updated by</th>
                     <th>updated date</th>
                     <th>file</th>
-                    <th>status</th>
                     <th>Action</th>
 
 
@@ -52,12 +51,13 @@
                         <td><?php echo $data['updated_by']; ?></td>
                         <td><?php echo $data['updated_date']; ?></td>
                         <td><?php echo $data['file']; ?></td>
-                        <td><?php echo $data['status']; ?></td>
 
                         <td>
                             <div class="btn-group">
                                 <a href="<?php echo base_url('guidelines/edit/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit"></i></a>
                                 <a href="<?php echo base_url('guidelines/delete/'.$data['guidelines_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus produk <?php echo $data['guidelines_name']; ?> ini?')"><i class="fas fa-trash-alt"></i></a>
+                                <a href="<?php echo base_url('guidelines/create_active/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit">active</i></a>
+
                             </div>
                         </td>
                     </tr>

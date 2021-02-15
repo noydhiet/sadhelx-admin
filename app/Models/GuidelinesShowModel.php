@@ -28,8 +28,11 @@ class GuidelinesShowModel extends Model
 		$hasil=$this->db->query("INSERT INTO guideline ('id', 'name', 'file')VALUES('$i','$n','$f')");
 		return $hasil;
 	}
-    public function insert_Guidelines($data)
+    public function insert_active_guidelines($data)
     {
+        // $test = $this->db->table($this->table)->insert($data);
+        // echo "<pre>";
+        // print_r($test);die;
         return $this->db->table($this->table)->insert($data);
     }
 

@@ -38,12 +38,12 @@
                         <td><?php echo $no; ?></td>
                         <td><?php echo $data['active_id']; ?></td>
                         <td><?php echo $data['active_date']; ?></td>
-                        <td><?php echo $data['active_by']; ?></td>
-                        <td><?php echo $data['fk_guide_id']; ?></td>
+                        <td><?php echo $data['activated_by']; ?></td>
+                        <td><?php echo $data['fk_guidelines_id']; ?></td>
                         <td>
                             <div class="btn-group">
-                                <a href="<?php echo base_url('guidelines/edit/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit"></i>edit</a>
-                                <a href="<?php echo base_url('guidelines/delete/'.$data['guidelines_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus produk <?php echo $data['guidelines_name']; ?> ini?')"><i class="fas fa-trash-alt"></i>del</a>
+                                <a href="<?php echo base_url('guidelines/edit/'.$data['active_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit"></i>edit</a>
+                                <a href="<?php echo base_url('guidelines/delete/'.$data['active_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus produk <?php echo $data['active_id']; ?> ini?')"><i class="fas fa-trash-alt"></i>del</a>
                             </div>
                         </td>
                     </tr>
