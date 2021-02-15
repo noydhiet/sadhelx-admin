@@ -11,8 +11,9 @@ class Guidelines extends Controller
 		$this->session = session();
 		
 	}
-	public function index()
-	{             
+    public function index()
+    {
+
         $model = new GuidelinesModel();
 		$guideline = $model->getGuidelines();
         $data = array(	'title'		=> 'Data',
@@ -33,9 +34,11 @@ class Guidelines extends Controller
     }
     public function create_active($id)
     {
+        $session = session($id);	
         $model = new GuidelinesShowModel();
         $data = array(
             'active_id' => $id,
+            'activated_by'	=> $session,
             'active_date' => date("Y-m-d"),
             'fk_guidelines_id'  => $id,
         );
@@ -85,10 +88,12 @@ class Guidelines extends Controller
     }
     public function create()
     {        
+        $session = session();
         $model = new GuidelinesModel();
 		$guideline = $model->getGuidelines();
         $data = array(	'title'		=> 'Data Berita',
                         'guideline'	=> $guideline,
+                        'user' => $session,
 						'content'	=> 'admin/guide/create');
 		return view('admin/_partials/wrapper',$data);
     }    
@@ -109,7 +114,7 @@ class Guidelines extends Controller
             return $this->index();
         } else {
             $upload = $this->request->getFile('file_upload');
-            $upload->move(WRITEPATH . '../assets/images/');
+            $upload->move(WRITEPATH . '../public/assets/images/');
 
         $data = array(
             'guidelines_name'  => $this->request->getPost('guidelines_name'),
@@ -130,10 +135,12 @@ class Guidelines extends Controller
     }
     public function edit($id)
     {        
+        $session = session();
         $model = new GuidelinesModel();
 		$guideline = $model->getGuidelines($id);
         $guideline = array(	'title'		=> 'Data Berita',
                         'guideline'	=> $guideline,
+                        'user' => $session,
 						'content'	=> 'admin/guide/edit');
 		return view('admin/_partials/wrapper',$guideline);
     }
@@ -172,14 +179,19 @@ class Guidelines extends Controller
         }
     }
     public function delete($id)
-    {
-         
+    {         
             $model 	= new GuidelinesModel();
             $berita = $model->delete_Guidelines($id);
             session()->setFlashdata('info', 'Updated guide successfully');
             return redirect()->to(base_url('guidelines'));
-        }
-    
+    }
+    public function delete_active($id)
+    {         
+            $model 	= new GuidelinesShowModel();
+            $berita = $model->delete_Guidelines($id);
+            session()->setFlashdata('info', 'Updated guide successfully');
+            return redirect()->to(base_url('guidelines/create_active'));
+    }
 
     
 }

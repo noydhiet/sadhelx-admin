@@ -29,5 +29,5 @@
             <a href="#" class="float-right">Forgot Password?</a>
         </div>
     </form>
-    <p class="text-center small">Don't have an account? <a href="<?php echo base_url('admin/registration') ?>">Sign up here!</a></p>
+    <p class="text-center small">Don't have an account? <a href="<?php echo base_url('register  ') ?>">Sign up here!</a></p>
 </div>

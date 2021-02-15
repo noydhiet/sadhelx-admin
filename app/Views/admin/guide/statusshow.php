@@ -14,14 +14,19 @@
 <div class="col-xl-12 col-md-6 mb-4">
 <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
+        <div class="table-responsive">
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                       Create Guidelines</div>
-                       
-                       <a href="<?php echo base_url('guidelines'); ?>" class="btn btn-success float-right mb-3">Guidelines</a>
-                       <table class="table table-bordered">
+                    
+                <a href="<?php echo base_url('guidelines'); ?>" class="btn btn-success float-left mb-3">Guidelines</a>
+                </div>
+                </div>
+                </div>
+
+                       <table id="dataTable" class="table table-bordered">
                 <thead>
+
                     <th>No</th>
                     <th>active id</th>
                     <th>active date</th>
@@ -42,8 +47,7 @@
                         <td><?php echo $data['fk_guidelines_id']; ?></td>
                         <td>
                             <div class="btn-group">
-                                <a href="<?php echo base_url('guidelines/edit/'.$data['active_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit"></i>edit</a>
-                                <a href="<?php echo base_url('guidelines/delete/'.$data['active_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus produk <?php echo $data['active_id']; ?> ini?')"><i class="fas fa-trash-alt"></i>del</a>
+                                <a href="<?php echo base_url('guidelines/delete_active/'.$data['active_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus guide <?php echo $data['active_id']; ?> ini?')"><i class="fas fa-trash-alt"></i>del</a>
                             </div>
                         </td>
                     </tr>
@@ -52,7 +56,7 @@
             </table>
         </div>
         <!-- /.container-fluid -->
-
+        </div>
       </div>
                 </div>
                 <div class="col-auto">

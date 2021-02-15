@@ -33,6 +33,7 @@ class GuidelinesShowModel extends Model
         // $test = $this->db->table($this->table)->insert($data);
         // echo "<pre>";
         // print_r($test);die;
+        $this->where(array(	'user_id'	=> $data));
         return $this->db->table($this->table)->insert($data);
     }
 

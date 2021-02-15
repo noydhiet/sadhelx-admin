@@ -54,13 +54,18 @@
                 <input type="file" name="file" value="<?php echo $guideline['file']; ?>" class="form-control" placeholder="Name">
             </div>
             </div>
-            
             <div class="col-md-4">
-            <label for="status">Status</label>
-                <select class="form-control" name="status" id="status">
-                <option value="Publish">Publish</option>
-                <option value="Hide" <?php if($guideline['status']=="Hide") { echo "selected"; } ?>>Hide</option>
-                </select>
+    				<div class="form-group">
+					<input type="hidden" class="form-control" name="updated_by" value="<?= $user->get('admin_username')?>" readonly>
+					  </div>	
+    			</div>
+				</div>
+                <div class="col-md-4">
+    				<div class="form-group">
+					<input type="hidden" class="form-control" name="created_by" value="<?= $user->get('admin_username')?>" readonly>
+					  </div>	
+    			</div>
+				</div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">

@@ -14,14 +14,17 @@
 <div class="col-xl-12 col-md-6 mb-4">
 <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
+        <div class="table-responsive">
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                        Create Guidelines</div>
+                       <div>
                        <a href="<?php echo base_url('guidelines/statusshow'); ?>" class="btn btn-success float-left mb-3">Active Guide</a>
-
                        <a href="<?php echo base_url('guidelines/create'); ?>" class="btn btn-success float-right mb-3">+</a>
-                       <table class="table table-bordered">
+                       </div>
+                       </div>
+                       <table id="dataTable" class="table table-bordered">
                 <thead>
                     <th>No</th>
                     <th>guidelines name</th>
@@ -50,12 +53,12 @@
                         <td><?php echo $data['created_date']; ?></td>
                         <td><?php echo $data['updated_by']; ?></td>
                         <td><?php echo $data['updated_date']; ?></td>
-                        <td><?php echo $data['file']; ?></td>
+                        <td><a class="nav-link text-primary" target="_blank" href="<?php echo base_url(); ?>/assets/images/<?php echo $data['file']; ?>"><?php echo $data['file']; ?></a></td>
 
                         <td>
                             <div class="btn-group">
                                 <a href="<?php echo base_url('guidelines/edit/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit"></i></a>
-                                <a href="<?php echo base_url('guidelines/delete/'.$data['guidelines_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus produk <?php echo $data['guidelines_name']; ?> ini?')"><i class="fas fa-trash-alt"></i></a>
+                                <a href="<?php echo base_url('guidelines/delete/'.$data['guidelines_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus guide <?php echo $data['guidelines_name']; ?> ini?')"><i class="fas fa-trash-alt"></i></a>
                                 <a href="<?php echo base_url('guidelines/create_active/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit">active</i></a>
 
                             </div>

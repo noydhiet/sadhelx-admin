@@ -8,13 +8,11 @@ class ModUsers extends Model
     protected $primaryKey = 'user_id';
 	protected $allowedFields = ['user_level','username','password','active'];
 
-	public function __construct()
-	{
-    }
-    public function detail($user_id)
+
+	public function detail($id)
 	{
 		$this->select('*');
-		$this->where(array(	'user_id'	=> $user_id));
+		$this->where(array(	'user_id'	=> $id));
 		$query = $this->get();
 		return $query->getRowArray();
 	}

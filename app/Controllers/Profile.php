@@ -19,14 +19,9 @@ class Profile extends Controller
 		}
 	public function index()
 	{ 
-	
-		$this->session = session();
-
-
-		$model 		= new ModUsers();
-		$dataIndex 		= $model->detail($dataIndex);
+		$session = session();	
         $data = array(	'title'		=> 'Data',
-						'user'		=> $dataIndex,
+						'user'		=> $session,
 						'content'	=> 'admin/profile/index');
 		return view('admin/_partials/wrapper',$data);
         

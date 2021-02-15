@@ -22,18 +22,23 @@
     		<div class="row">
 			
     			<div class="col-md-4">
+    				<label>id</label>
+					<div class="col-sm-9">
+					<input type="text" class="form-control" name="user_id" value="<?= $user->get('admin_user_id')?>" readonly>
+					  </div>	
+    			</div>
+				<div class="col-md-4">
     				<label>name</label>
 					<div class="col-sm-9">
-        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Pengguna" value="<?php echo $user['nama'] ?>">
-  </div>	
+					<input type="text" class="form-control" name="user_id" value="<?= $user->get('admin_username')?>" readonly>
+					  </div>	
     			</div>
-			
-    			<div class="col-md-4">
+    			<!-- <div class="col-md-4">
     				<label>Aksi</label>
     				<div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
                 	</div>	
-    			</div>
+    			</div> -->
     		</div>
     	</div>
 	</div>

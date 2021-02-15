@@ -111,11 +111,7 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Guidelines</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/logout') ?>">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Logout</span></a>
-            </li>
+          
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
