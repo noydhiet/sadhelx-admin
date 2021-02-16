@@ -8,6 +8,7 @@ class Home extends Controller
 	{ 
 		$session = session();
         $data = array(	'title'		=> 'Data',
+						'user'		=> $session,
 						'content'	=> 'welcome_message');
 		return view('admin/_partials/wrapper',$data);
         

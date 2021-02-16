@@ -61,12 +61,16 @@
     			<div class="col-md-4">
     				<div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
-                	</div>	
-    			</div>
-    		</div>
-    	</div>
-	</div>
-</div>
-</div>
-    </div>
-		</div>
+					</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- End of Main Content -->

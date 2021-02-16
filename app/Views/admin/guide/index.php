@@ -1,15 +1,11 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Master Guidelines</h1>
                     </div>
-
                     <div class="row">
-
-
 <!-- Earnings (Monthly) Card Example -->
 <div class="col-xl-12 col-md-6 mb-4">
 <div class="card border-left-primary shadow h-100 py-2">
@@ -37,12 +33,9 @@
                     <th>updated date</th>
                     <th>file</th>
                     <th>Action</th>
-
-
                 </thead>
                 <tbody>
                     <?php $no=0; foreach($guideline as $data) { $no++ ?>
-
                     <tr>
                         <td><?php echo $no; ?></td>
                         <td><?php echo $data['guidelines_name']; ?></td>
@@ -54,13 +47,11 @@
                         <td><?php echo $data['updated_by']; ?></td>
                         <td><?php echo $data['updated_date']; ?></td>
                         <td><a class="nav-link text-primary" target="_blank" href="<?php echo base_url(); ?>/assets/images/<?php echo $data['file']; ?>"><?php echo $data['file']; ?></a></td>
-
                         <td>
                             <div class="btn-group">
                                 <a href="<?php echo base_url('guidelines/edit/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit"></i></a>
                                 <a href="<?php echo base_url('guidelines/delete/'.$data['guidelines_id']); ?>" class="btn btn-danger float-right mb-3" onclick="return confirm('Apakah Anda yakin ingin menghapus guide <?php echo $data['guidelines_name']; ?> ini?')"><i class="fas fa-trash-alt"></i></a>
                                 <a href="<?php echo base_url('guidelines/create_active/'.$data['guidelines_id']); ?>" class="btn btn-primary float-right mb-3"><i class="fas fa-edit">active</i></a>
-
                             </div>
                         </td>
                     </tr>
@@ -74,14 +65,16 @@
                 </div>
                 <div class="col-auto">
                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
+                <!-- /.container-fluid -->
+
             </div>
-        </div>
-    </div>
-</div>
+            <!-- End of Main Content -->
 
-</div>
-</div>
-
-</div>
             <!-- End of Main Content -->

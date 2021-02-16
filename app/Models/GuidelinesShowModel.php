@@ -30,12 +30,16 @@ class GuidelinesShowModel extends Model
 	}
     public function insert_active_guidelines($data)
     {
-        // $test = $this->db->table($this->table)->insert($data);
-        // echo "<pre>";
-        // print_r($test);die;
-        $this->where(array(	'user_id'	=> $data));
         return $this->db->table($this->table)->insert($data);
     }
+    // public function insert_active_guidelines($data)
+    // {
+    //     // $test = $this->db->table($this->table)->insert($data);
+    //     // echo "<pre>";
+    //     // print_r($test);die;
+    //     $this->where(array('user_id'	=> $data));
+    //     return $this->db->table($this->table)->insert($data);
+    // }
 
     public function update_Guidelines($data, $active_id)
     {
